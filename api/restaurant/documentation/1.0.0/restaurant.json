@@ -1,0 +1,1164 @@
+{
+  "paths": {
+    "/restaurants": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Restaurant"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Restaurant"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Restaurant"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Restaurant"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewRestaurant"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/restaurants/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Restaurant"
+        ],
+        "parameters": []
+      }
+    },
+    "/restaurants/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Restaurant"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Restaurant"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Restaurant"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Restaurant"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewRestaurant"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a record",
+        "responses": {
+          "200": {
+            "description": "deletes a single record based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Restaurant"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Restaurant": {
+        "required": [
+          "id",
+          "name",
+          "phoneNumber",
+          "estimatedDeliveryTime",
+          "openingTime",
+          "closingTime",
+          "minimumOrderValue",
+          "category",
+          "address",
+          "billing",
+          "legal"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "estimatedDeliveryTime": {
+            "type": "string"
+          },
+          "largeImageUrl": {
+            "type": "string"
+          },
+          "thumbnailImageUrl": {
+            "type": "string"
+          },
+          "menu_items_categories": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "menu_items": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "restaurant": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "menu_items": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "price"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "largeImageUrl": {
+                  "type": "string"
+                },
+                "thumbnailImageUrl": {
+                  "type": "string"
+                },
+                "menu_item_category": {
+                  "type": "string"
+                },
+                "restaurant": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "number"
+                },
+                "status": {
+                  "type": "boolean"
+                },
+                "onSale": {
+                  "type": "boolean"
+                },
+                "promotionalPrice": {
+                  "type": "number"
+                },
+                "menu_options_categories": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "menu_options_categories": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "isOptional"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "isOptional": {
+                  "type": "boolean"
+                },
+                "menu_options": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "restaurant": {
+                  "type": "string"
+                },
+                "minOptionals": {
+                  "type": "integer"
+                },
+                "maxOptionals": {
+                  "type": "integer"
+                },
+                "menu_items": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "menu_options": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "isFree"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "isFree": {
+                  "type": "boolean"
+                },
+                "menu_options_category": {
+                  "type": "string"
+                },
+                "restaurant": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "number"
+                },
+                "status": {
+                  "type": "boolean"
+                },
+                "thumbnailImageUrl": {
+                  "type": "string"
+                },
+                "largeImageUrl": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "orders": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "status",
+                "payment"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "created",
+                    "confirmed",
+                    "ready",
+                    "delivered",
+                    "canceled"
+                  ]
+                },
+                "reasonForCancellation": {
+                  "type": "string",
+                  "enum": [
+                    "Não estarei no local",
+                    "Errei a forma de pagamento",
+                    "Prato errado ou item faltando",
+                    "Pedi sem querer",
+                    "Outro motivo"
+                  ]
+                },
+                "otherReason": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "restaurant": {
+                  "type": "string"
+                },
+                "payment": {
+                  "type": "component"
+                },
+                "coupon": {
+                  "type": "string"
+                },
+                "note": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "component"
+                },
+                "toGo": {
+                  "type": "boolean"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "openingTime": {
+            "type": "string"
+          },
+          "closingTime": {
+            "type": "string"
+          },
+          "minimumOrderValue": {
+            "type": "integer"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "Açaí",
+              "Africana",
+              "Alemã",
+              "Árabe",
+              "Argentina",
+              "Bebidas",
+              "Brasileira",
+              "Cafeteria",
+              "Carnes",
+              "Casa de Sucos",
+              "Chinesa",
+              "Colombiana",
+              "Congelados",
+              "Conveniência",
+              "Coreana",
+              "Doces e Bolos",
+              "Espanhola",
+              "Francesa",
+              "Frutos do Mar",
+              "Indiana",
+              "Italiana",
+              "Japonesa",
+              "Lanches",
+              "Marmita",
+              "Mediterrânea",
+              "Mexicana",
+              "Padaria",
+              "Pastel",
+              "Peixes",
+              "Peruana",
+              "Pizza",
+              "Portuguesa",
+              "Salgados",
+              "Saudável",
+              "Sorvetes",
+              "Tailandesa",
+              "Vegetariana"
+            ]
+          },
+          "address": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "cep": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "neighborhood": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "number": {
+                "type": "integer"
+              },
+              "complement": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              }
+            }
+          },
+          "billing": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "bank": {
+                "type": "string"
+              },
+              "agency": {
+                "type": "string"
+              },
+              "agencyDigit": {
+                "type": "string"
+              },
+              "account": {
+                "type": "string"
+              },
+              "accountDigit": {
+                "type": "string"
+              }
+            }
+          },
+          "legal": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "cnpj": {
+                "type": "string"
+              },
+              "razaoSocial": {
+                "type": "string"
+              }
+            }
+          },
+          "status": {
+            "type": "string",
+            "default": "Offline",
+            "enum": [
+              "Available",
+              "Offline"
+            ]
+          },
+          "confirmed": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
+      "NewRestaurant": {
+        "required": [
+          "name",
+          "phoneNumber",
+          "estimatedDeliveryTime",
+          "openingTime",
+          "closingTime",
+          "minimumOrderValue",
+          "category",
+          "address",
+          "billing",
+          "legal"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "estimatedDeliveryTime": {
+            "type": "string"
+          },
+          "largeImageUrl": {
+            "type": "string"
+          },
+          "thumbnailImageUrl": {
+            "type": "string"
+          },
+          "menu_items_categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "menu_items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "menu_options_categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "menu_options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "orders": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "openingTime": {
+            "type": "string"
+          },
+          "closingTime": {
+            "type": "string"
+          },
+          "minimumOrderValue": {
+            "type": "integer"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "Açaí",
+              "Africana",
+              "Alemã",
+              "Árabe",
+              "Argentina",
+              "Bebidas",
+              "Brasileira",
+              "Cafeteria",
+              "Carnes",
+              "Casa de Sucos",
+              "Chinesa",
+              "Colombiana",
+              "Congelados",
+              "Conveniência",
+              "Coreana",
+              "Doces e Bolos",
+              "Espanhola",
+              "Francesa",
+              "Frutos do Mar",
+              "Indiana",
+              "Italiana",
+              "Japonesa",
+              "Lanches",
+              "Marmita",
+              "Mediterrânea",
+              "Mexicana",
+              "Padaria",
+              "Pastel",
+              "Peixes",
+              "Peruana",
+              "Pizza",
+              "Portuguesa",
+              "Salgados",
+              "Saudável",
+              "Sorvetes",
+              "Tailandesa",
+              "Vegetariana"
+            ]
+          },
+          "address": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "cep": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "neighborhood": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "number": {
+                "type": "integer"
+              },
+              "complement": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              }
+            }
+          },
+          "billing": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "bank": {
+                "type": "string"
+              },
+              "agency": {
+                "type": "string"
+              },
+              "agencyDigit": {
+                "type": "string"
+              },
+              "account": {
+                "type": "string"
+              },
+              "accountDigit": {
+                "type": "string"
+              }
+            }
+          },
+          "legal": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "cnpj": {
+                "type": "string"
+              },
+              "razaoSocial": {
+                "type": "string"
+              }
+            }
+          },
+          "status": {
+            "type": "string",
+            "default": "Offline",
+            "enum": [
+              "Available",
+              "Offline"
+            ]
+          },
+          "confirmed": {
+            "type": "boolean",
+            "default": false
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Restaurant"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_restaurant_addresses",
+  "info": {
+    "name": "address",
+    "icon": "angle-double-up"
+  },
+  "options": {},
+  "attributes": {
+    "cep": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "neighborhood": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "number": {
+      "type": "integer"
+    },
+    "complement": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "float"
+    },
+    "longitude": {
+      "type": "float"
+    }
+  }
+}

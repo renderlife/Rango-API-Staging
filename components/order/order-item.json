@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_order_order_items",
+  "info": {
+    "name": "Data",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "quantity": {
+      "type": "integer"
+    },
+    "menu_item": {
+      "model": "menu-items"
+    },
+    "options": {
+      "type": "component",
+      "repeatable": true,
+      "component": "order.options"
+    }
+  }
+}

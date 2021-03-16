@@ -1,0 +1,147 @@
+{
+  "kind": "collectionType",
+  "collectionName": "restaurants",
+  "info": {
+    "name": "restaurant"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "phoneNumber": {
+      "type": "string",
+      "regex": "\\(\\d{2}\\) \\d{4}\\-\\d{4}",
+      "required": true
+    },
+    "estimatedDeliveryTime": {
+      "type": "string",
+      "required": true
+    },
+    "largeImageUrl": {
+      "type": "string"
+    },
+    "thumbnailImageUrl": {
+      "type": "string"
+    },
+    "menu_items_categories": {
+      "via": "restaurant",
+      "autoPopulate": false,
+      "collection": "menu-items-categories"
+    },
+    "menu_items": {
+      "via": "restaurant",
+      "autoPopulate": false,
+      "collection": "menu-items"
+    },
+    "menu_options_categories": {
+      "via": "restaurant",
+      "autoPopulate": false,
+      "collection": "menu-options-categories"
+    },
+    "menu_options": {
+      "via": "restaurant",
+      "autoPopulate": false,
+      "collection": "menu-options"
+    },
+    "orders": {
+      "via": "restaurant",
+      "autoPopulate": false,
+      "collection": "orders"
+    },
+    "openingTime": {
+      "type": "string",
+      "regex": "\\d{2}\\:\\d{2}",
+      "required": true
+    },
+    "closingTime": {
+      "type": "string",
+      "regex": "\\d{2}\\:\\d{2}",
+      "required": true
+    },
+    "minimumOrderValue": {
+      "type": "integer",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Açaí",
+        "Africana",
+        "Alemã",
+        "Árabe",
+        "Argentina",
+        "Bebidas",
+        "Brasileira",
+        "Cafeteria",
+        "Carnes",
+        "Casa de Sucos",
+        "Chinesa",
+        "Colombiana",
+        "Congelados",
+        "Conveniência",
+        "Coreana",
+        "Doces e Bolos",
+        "Espanhola",
+        "Francesa",
+        "Frutos do Mar",
+        "Indiana",
+        "Italiana",
+        "Japonesa",
+        "Lanches",
+        "Marmita",
+        "Mediterrânea",
+        "Mexicana",
+        "Padaria",
+        "Pastel",
+        "Peixes",
+        "Peruana",
+        "Pizza",
+        "Portuguesa",
+        "Salgados",
+        "Saudável",
+        "Sorvetes",
+        "Tailandesa",
+        "Vegetariana"
+      ]
+    },
+    "address": {
+      "type": "component",
+      "repeatable": false,
+      "component": "restaurant.address",
+      "required": true
+    },
+    "billing": {
+      "type": "component",
+      "repeatable": false,
+      "component": "restaurant.billing",
+      "required": true
+    },
+    "legal": {
+      "type": "component",
+      "repeatable": false,
+      "component": "restaurant.legal",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "required": false,
+      "enum": [
+        "Available",
+        "Offline"
+      ],
+      "default": "Offline"
+    },
+    "confirmed": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    }
+  }
+}

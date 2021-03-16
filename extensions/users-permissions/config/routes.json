@@ -1,0 +1,19 @@
+{
+    "routes": [
+      {
+        "method": "PUT",
+        "path": "/users/me",
+        "handler": "User.updateCurrentUser",
+        "config": {
+            "policies": [],
+            "prefix": "",
+            "description": "Updates the current logged in user data",
+            "tag": {
+            "plugin": "users-permissions",
+            "name": "User",
+            "actionType": "find"
+            }
+        }
+      }
+    ]
+}

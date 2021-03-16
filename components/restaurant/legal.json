@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_restaurant_legals",
+  "info": {
+    "name": "legal",
+    "icon": "align-right"
+  },
+  "options": {},
+  "attributes": {
+    "cnpj": {
+      "type": "string"
+    },
+    "razaoSocial": {
+      "type": "string"
+    }
+  }
+}

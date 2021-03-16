@@ -1,0 +1,97 @@
+{
+    "routes": [
+      {
+        "method": "POST",
+        "path": "/logout",
+        "handler": "Custom.logout"
+      },
+      {
+        "method": "GET",
+        "path": "/restaurants/haversine",
+        "handler": "Custom.findRestaurantsByLocation",
+        "config": {
+          "policies": []
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/orders/thisWeek",
+        "handler": "Custom.findOrdersThisWeek",
+        "config": {
+          "policies": []
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/orders/lastWeek",
+        "handler": "Custom.findOrdersLastWeek",
+        "config": {
+          "policies": []
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/orders/revenuesThisWeek",
+        "handler": "Custom.findRevenuesThisWeek",
+        "config": {
+          "policies": []
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/orders/revenuesLastWeek",
+        "handler": "Custom.findRevenuesLastWeek",
+        "config": {
+          "policies": []
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/orders/categoriesThisWeek",
+        "handler": "Custom.findOrdersByCategoryThisWeek",
+        "config": {
+          "policies": []
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/orders/categoriesLastWeek",
+        "handler": "Custom.findOrdersByCategoryLastWeek",
+        "config": {
+          "policies": []
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/orders/resumeThisMonth",
+        "handler": "Custom.findResumeThisMonth",
+        "config": {
+          "policies": []
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/orders/resumeToday",
+        "handler": "Custom.findResumeToday",
+        "config": {
+          "policies": []
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/tokenizeCard",
+        "handler": "Custom.tokenizeCard",
+        "config": {
+          "policies": []
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/retrieveTokenizedCard",
+        "handler": "Custom.retrieveTokenizedCard",
+        "config": {
+          "policies": []
+        }
+      }
+    ]
+}

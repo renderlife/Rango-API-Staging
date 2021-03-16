@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_order_options",
+  "info": {
+    "name": "options",
+    "icon": "align-center"
+  },
+  "options": {},
+  "attributes": {
+    "menu_option": {
+      "model": "menu-options"
+    },
+    "quantity": {
+      "type": "integer"
+    }
+  }
+}

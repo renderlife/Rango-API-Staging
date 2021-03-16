@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menu_items_categories",
+  "info": {
+    "name": "MenuItemsCategories"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "menu_items": {
+      "via": "menu_item_category",
+      "autoPopulate": false,
+      "collection": "menu-items"
+    },
+    "restaurant": {
+      "autoPopulate": false,
+      "model": "restaurant",
+      "via": "menu_items_categories"
+    }
+  }
+}

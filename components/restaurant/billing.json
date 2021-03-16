@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_restaurant_billings",
+  "info": {
+    "name": "billing",
+    "icon": "asterisk"
+  },
+  "options": {},
+  "attributes": {
+    "bank": {
+      "type": "string"
+    },
+    "agency": {
+      "type": "string"
+    },
+    "agencyDigit": {
+      "type": "string"
+    },
+    "account": {
+      "type": "string"
+    },
+    "accountDigit": {
+      "type": "string"
+    }
+  }
+}

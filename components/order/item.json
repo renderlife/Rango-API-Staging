@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_order_items",
+  "info": {
+    "name": "item",
+    "icon": "align-left"
+  },
+  "options": {},
+  "attributes": {
+    "menu_items": {
+      "collection": "menu-items"
+    }
+  }
+}

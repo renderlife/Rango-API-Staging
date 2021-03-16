@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_billings",
+  "info": {
+    "name": "UserBilling"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "cardToken": {
+      "type": "string",
+      "required": false
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "holderIdentity": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "enumeration",
+      "enum": [
+        "Visa",
+        "MasterCard",
+        "AmericanExpress",
+        "Elo",
+        "DinersClub",
+        "Discover",
+        "JCB",
+        "Aura",
+        "Hipercard"
+      ]
+    },
+    "default": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

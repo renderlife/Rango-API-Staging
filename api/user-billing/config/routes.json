@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/user-billings",
+      "handler": "user-billing.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/user-billings/count",
+      "handler": "user-billing.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/user-billings/:id",
+      "handler": "user-billing.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/user-billings",
+      "handler": "user-billing.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/user-billings/:id",
+      "handler": "user-billing.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/user-billings/:id",
+      "handler": "user-billing.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menu_items",
+  "info": {
+    "name": "MenuItems"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "largeImageUrl": {
+      "type": "string"
+    },
+    "thumbnailImageUrl": {
+      "type": "string"
+    },
+    "menu_item_category": {
+      "autoPopulate": false,
+      "model": "menu-items-categories",
+      "via": "menu_items"
+    },
+    "restaurant": {
+      "autoPopulate": false,
+      "model": "restaurant",
+      "via": "menu_items"
+    },
+    "price": {
+      "type": "float",
+      "required": true
+    },
+    "status": {
+      "type": "boolean"
+    },
+    "onSale": {
+      "type": "boolean",
+      "default": false
+    },
+    "promotionalPrice": {
+      "type": "float"
+    },
+    "menu_options_categories": {
+      "via": "menu_items",
+      "collection": "menu-options-categories"
+    }
+  }
+}

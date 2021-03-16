@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_options_items",
+  "info": {
+    "name": "items",
+    "icon": "angle-double-down"
+  },
+  "options": {},
+  "attributes": {
+    "menu_items": {
+      "collection": "menu-items"
+    }
+  }
+}

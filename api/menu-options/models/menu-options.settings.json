@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menu_options",
+  "info": {
+    "name": "MenuOptions"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "isFree": {
+      "type": "boolean",
+      "required": true
+    },
+    "menu_options_category": {
+      "via": "menu_options",
+      "autoPopulate": false,
+      "model": "menu-options-categories"
+    },
+    "restaurant": {
+      "autoPopulate": false,
+      "model": "restaurant",
+      "via": "menu_options"
+    },
+    "description": {
+      "type": "text"
+    },
+    "price": {
+      "type": "float"
+    },
+    "status": {
+      "type": "boolean"
+    },
+    "thumbnailImageUrl": {
+      "type": "string"
+    },
+    "largeImageUrl": {
+      "type": "string"
+    }
+  }
+}

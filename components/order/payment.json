@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_order_payments",
+  "info": {
+    "name": "Payment",
+    "icon": "credit-card"
+  },
+  "options": {},
+  "attributes": {
+    "subtotal": {
+      "type": "float",
+      "required": true
+    },
+    "discount": {
+      "type": "float"
+    },
+    "total": {
+      "type": "float",
+      "required": true
+    },
+    "tId": {
+      "type": "string"
+    },
+    "paymentId": {
+      "type": "string"
+    },
+    "user_billing": {
+      "model": "user-billing"
+    },
+    "installments": {
+      "type": "integer"
+    }
+  }
+}
