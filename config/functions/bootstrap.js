@@ -96,7 +96,7 @@ module.exports = (ctx) => {
         }
       }
   
-      if(result !== undefined) await io.sockets.to(result.).emit('order_status', JSON.stringify({message: 'Your order status has changed'}));
+      if(result !== undefined) await io.sockets.to(result.socketId).emit('order_status', JSON.stringify({message: 'Your order status has changed'}));
     }
   };
 };
