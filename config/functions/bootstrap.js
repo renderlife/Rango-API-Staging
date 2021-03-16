@@ -52,8 +52,9 @@ module.exports = (ctx) => {
       }
     });
 
-    socket.on('teste', () => {
+    socket.on('teste', (data) => {
       console.log("Mensagem de teste recebida");
+      console.log(data);
     });
 
     // listen for user disconnect
