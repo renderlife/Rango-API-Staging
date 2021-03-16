@@ -81,7 +81,7 @@ module.exports = (ctx) => {
         }
       }
   
-      await io.sockets.to(result.socketId).emit('food_ready', JSON.stringify({message: 'New income order'}));
+      if(result !== undefined) await io.sockets.to(result.socketId).emit('food_ready', JSON.stringify({message: 'New income order'}));
     }
   };
   strapi.emitChangedOrderStatusAlert = async (userId) => {
@@ -96,7 +96,7 @@ module.exports = (ctx) => {
         }
       }
   
-      await io.sockets.to(result.socketId).emit('order_status', JSON.stringify({message: 'Your order status has changed'}));
+      if(result !== undefined) await io.sockets.to(result.).emit('order_status', JSON.stringify({message: 'Your order status has changed'}));
     }
   };
 };
