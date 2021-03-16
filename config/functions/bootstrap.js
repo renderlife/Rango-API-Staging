@@ -37,6 +37,7 @@ module.exports = (ctx) => {
     });
 
     socket.on('userID', async function(res) {
+      console.log("o servidor recebeu");
       jsonReponse = await JSON.parse(res);
 
       var socketJsonClient = {
