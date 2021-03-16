@@ -52,6 +52,10 @@ module.exports = (ctx) => {
       }
     });
 
+    socket.on('teste', () => {
+      console.log("Mensagem de teste recebida");
+    });
+
     // listen for user disconnect
     socket.on('disconnect', () => {
       restaurants.forEach((restaurant, i) => {
