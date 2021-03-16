@@ -58,6 +58,7 @@ module.exports = (ctx) => {
 
     // listen for user disconnect
     socket.on('disconnect', () => {
+      console.log("user disconnected");
       restaurants.forEach((restaurant, i) => {
         // delete saved user when they disconnect
         if(restaurant.restId === socket.restId) { 
