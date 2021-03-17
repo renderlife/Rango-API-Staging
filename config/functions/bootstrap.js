@@ -37,7 +37,6 @@ module.exports = (ctx) => {
     });
 
     socket.on('userID', async function(res) {
-      console.log("o servidor recebeu");
       jsonReponse = await JSON.parse(res);
 
       var socketJsonClient = {
@@ -51,6 +50,21 @@ module.exports = (ctx) => {
         socket.userId = socketJsonClient.userId; 
       }
     });
+
+    socket.on('userIDMobile', (userId) => {
+      console.log("o servidor recebeu");
+
+      var socketJsonClient = {
+        "socketId": socket.id,
+        "userId": userId
+      };
+      users.push(socketJsonClient);
+
+      if(socketJsonClient.socketId){
+        // Set user id on socket
+        socket.userId = socketJsonClient.userId; 
+      }
+    })
 
     socket.on('teste', (data) => {
       console.log("Mensagem de teste recebida");
