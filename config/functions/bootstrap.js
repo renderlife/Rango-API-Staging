@@ -52,7 +52,6 @@ module.exports = (ctx) => {
     });
 
     socket.on('userIDMobile', (userId) => {
-      console.log("o servidor recebeu");
 
       var socketJsonClient = {
         "socketId": socket.id,
@@ -66,14 +65,8 @@ module.exports = (ctx) => {
       }
     })
 
-    socket.on('teste', (data) => {
-      console.log("Mensagem de teste recebida");
-      console.log(data);
-    });
-
     // listen for user disconnect
     socket.on('disconnect', () => {
-      console.log("user disconnected");
       restaurants.forEach((restaurant, i) => {
         // delete saved user when they disconnect
         if(restaurant.restId === socket.restId) { 
@@ -105,7 +98,7 @@ module.exports = (ctx) => {
       if(result !== undefined) await io.sockets.to(result.socketId).emit('food_ready', JSON.stringify({message: 'New income order'}));
     }
   };
-  strapi.emitChangedOrderStatusAlert = async (userId) => {
+  strapi.emitChangedOrderStatusAlert = async (userId, status) => {
 
     var result;
 
@@ -117,7 +110,7 @@ module.exports = (ctx) => {
         }
       }
   
-      if(result !== undefined) await io.sockets.to(result.socketId).emit('order_status', JSON.stringify({message: 'Your order status has changed'}));
+      if(result !== undefined) await io.sockets.to(result.socketId).emit('order_status', JSON.stringify({message: 'Your order status has changed', newStatus: status}));
     }
   };
 };

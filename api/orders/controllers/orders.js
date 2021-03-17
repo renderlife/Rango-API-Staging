@@ -119,7 +119,7 @@ module.exports = {
             entity = await strapi.services.orders.update({ id }, ctx.request.body);
           }
 
-          await strapi.emitChangedOrderStatusAlert(entity.user);
+          await strapi.emitChangedOrderStatusAlert(entity.user, entity.status);
 
           return sanitizeEntity(entity, { model: strapi.models.orders });
         }
@@ -150,7 +150,7 @@ module.exports = {
         entity = await strapi.services.orders.update({ id }, ctx.request.body);
       }
 
-      await strapi.emitChangedOrderStatusAlert(entity.user);
+      await strapi.emitChangedOrderStatusAlert(entity.user, entity.status);
 
       currentUser = await strapi.query('user', 'users-permissions').findOne({id: entity.user});
 
