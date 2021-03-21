@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "03/17/2021 5:26:57 PM"
+    "x-generation-date": "03/21/2021 11:18:27 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -7857,6 +7857,9 @@
               "oneSignalId": {
                 "type": "string"
               },
+              "addresses": {
+                "type": "component"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -9188,6 +9191,9 @@
               "oneSignalId": {
                 "type": "string"
               },
+              "addresses": {
+                "type": "component"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -9372,6 +9378,9 @@
                 },
                 "oneSignalId": {
                   "type": "string"
+                },
+                "addresses": {
+                  "type": "component"
                 },
                 "created_by": {
                   "type": "string"
@@ -9704,6 +9713,47 @@
           },
           "oneSignalId": {
             "type": "string"
+          },
+          "addresses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "cep": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "neighborhood": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "number": {
+                  "type": "integer"
+                },
+                "complement": {
+                  "type": "string"
+                },
+                "latitude": {
+                  "type": "number"
+                },
+                "longitude": {
+                  "type": "number"
+                }
+              }
+            }
           }
         }
       },
@@ -9764,6 +9814,47 @@
           },
           "oneSignalId": {
             "type": "string"
+          },
+          "addresses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "cep": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "neighborhood": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "number": {
+                  "type": "integer"
+                },
+                "complement": {
+                  "type": "string"
+                },
+                "latitude": {
+                  "type": "number"
+                },
+                "longitude": {
+                  "type": "number"
+                }
+              }
+            }
           },
           "created_by": {
             "type": "string"

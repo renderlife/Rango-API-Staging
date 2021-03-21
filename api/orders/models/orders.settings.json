@@ -36,10 +36,10 @@
       "type": "string"
     },
     "user": {
-      "autoPopulate": false,
+      "via": "orders",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "orders"
+      "autoPopulate": false,
+      "model": "user"
     },
     "restaurant": {
       "autoPopulate": false,

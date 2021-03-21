@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_user_addresses",
+  "info": {
+    "name": "Address",
+    "icon": "adjust",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "cep": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "neighborhood": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "number": {
+      "type": "integer"
+    },
+    "complement": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "float"
+    },
+    "longitude": {
+      "type": "float"
+    }
+  }
+}

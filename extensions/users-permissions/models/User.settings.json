@@ -6,7 +6,8 @@
     "description": ""
   },
   "options": {
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": false
   },
   "attributes": {
     "username": {
@@ -69,15 +70,20 @@
       "regex": "\\(\\d{2}\\) \\d{5}\\-\\d{4}"
     },
     "orders": {
-      "via": "user",
       "autoPopulate": false,
-      "collection": "orders"
+      "collection": "orders",
+      "via": "user"
     },
     "restaurant": {
       "model": "restaurant"
     },
     "oneSignalId": {
       "type": "string"
+    },
+    "addresses": {
+      "type": "component",
+      "repeatable": true,
+      "component": "user.address"
     }
   }
 }
