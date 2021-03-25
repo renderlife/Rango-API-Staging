@@ -829,7 +829,45 @@
             }
           },
           "coupon": {
-            "type": "string"
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "discountType": {
+                "type": "string",
+                "enum": [
+                  "value",
+                  "percentage"
+                ]
+              },
+              "discount": {
+                "type": "integer"
+              },
+              "singleUse": {
+                "type": "boolean"
+              },
+              "numberOfCoupons": {
+                "type": "integer"
+              },
+              "validThru": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           },
           "note": {
             "type": "string"

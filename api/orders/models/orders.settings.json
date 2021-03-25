@@ -53,7 +53,7 @@
       "required": true
     },
     "coupon": {
-      "type": "string"
+      "model": "coupons"
     },
     "note": {
       "type": "text"
