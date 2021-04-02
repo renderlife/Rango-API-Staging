@@ -412,7 +412,7 @@ module.exports = {
 
   async findRestaurantsByLocation(ctx){
 
-    const { latitude, longitude, radius, orderByDistance, orderByWaitingTime, categories } = ctx.query;
+    const { latitude, longitude, radius, orderByDistance, orderByWaitingTime, categories, search } = ctx.query;
 
     const start = {
       latitude: latitude,
@@ -425,9 +425,11 @@ module.exports = {
       } else {
         entities = await strapi.query('restaurant').find({_sort: "estimatedDeliveryTime:asc"});
       }
+    } 
+    else if (search !== undefined) {
+      entities = await strapi.query('restaurant').find({name_contains: search});
     } else {
       if(categories !== undefined) {
-        console.log(categories);
         entities = await strapi.query('restaurant').find({category_in: categories});
       } else {
         entities = await strapi.query('restaurant').find();
