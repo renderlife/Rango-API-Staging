@@ -1,7 +1,7 @@
 module.exports = {
   
     async create(data, { files } = {}) {
-      const validData = await strapi.entityValidator.validateEntity(strapi.models.orders, data);
+      const validData = await strapi.entityValidator.validateEntityCreation(strapi.models.orders, data);
       const entry = await strapi.query('orders').create(validData);
   
       if (files) {
