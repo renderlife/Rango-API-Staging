@@ -160,7 +160,7 @@ module.exports = {
         //await oneSignal.createNotification("Oba! O seu pedido foi confirmado e já está sendo preparado pelo restaurante :)", {}, [currentUser.oneSignalId]);
         const notification = {
           contents: {
-            'pt': 'Oba! O seu pedido foi confirmado e já está sendo preparado pelo restaurante.',
+            'en': 'Oba! O seu pedido foi confirmado e já está sendo preparado pelo restaurante.'
           },
           include_player_ids: [currentUser.oneSignalId],
           android_channel_id: "0cdc4039-80fc-414d-b2e2-85d99a6e95b5"
@@ -186,7 +186,7 @@ module.exports = {
 
         const notification = {
           contents: {
-            'pt': 'Oba! O seu pedido foi confirmado e já está sendo preparado pelo restaurante.',
+            'en': 'Seu #RanGo acabou de ficar pronto!'
           },
           include_player_ids: [currentUser.oneSignalId],
           android_channel_id: "0cdc4039-80fc-414d-b2e2-85d99a6e95b5"
