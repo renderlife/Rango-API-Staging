@@ -2,7 +2,7 @@ const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
 const { authTokenizedCard, captureTransaction, chargeTokenizedCard, cancelTransaction } = require('./../../custom/controllers/Custom');
 //var oneSignal = require('onesignal')('Yzc0NDRiOTYtY2JhYy00NDNhLTg1N2YtY2Q5Y2YwNzMzY2Rh', 'd559ec83-479d-462f-b163-32657eb2487f', true);
 const OneSignal = require('onesignal-node');    
-const client = new OneSignal.Client('Yzc0NDRiOTYtY2JhYy00NDNhLTg1N2YtY2Q5Y2YwNzMzY2Rh', 'd559ec83-479d-462f-b163-32657eb2487f');
+const client = new OneSignal.Client('d559ec83-479d-462f-b163-32657eb2487f', 'Yzc0NDRiOTYtY2JhYy00NDNhLTg1N2YtY2Q5Y2YwNzMzY2Rh'); 
 
 module.exports = {
   async create(ctx) {
