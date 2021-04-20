@@ -1,6 +1,8 @@
 const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
 const { authTokenizedCard, captureTransaction, chargeTokenizedCard, cancelTransaction } = require('./../../custom/controllers/Custom');
-var oneSignal = require('onesignal')('Yzc0NDRiOTYtY2JhYy00NDNhLTg1N2YtY2Q5Y2YwNzMzY2Rh', 'd559ec83-479d-462f-b163-32657eb2487f', true);
+//var oneSignal = require('onesignal')('Yzc0NDRiOTYtY2JhYy00NDNhLTg1N2YtY2Q5Y2YwNzMzY2Rh', 'd559ec83-479d-462f-b163-32657eb2487f', true);
+const OneSignal = require('onesignal-node');    
+const client = new OneSignal.Client('Yzc0NDRiOTYtY2JhYy00NDNhLTg1N2YtY2Q5Y2YwNzMzY2Rh', 'd559ec83-479d-462f-b163-32657eb2487f');
 
 module.exports = {
   async create(ctx) {
@@ -155,11 +157,54 @@ module.exports = {
       currentUser = await strapi.query('user', 'users-permissions').findOne({id: entity.user});
 
       if(entity.status == "confirmed"){
-        await oneSignal.createNotification("Oba! O seu pedido foi confirmado e já está sendo preparado pelo restaurante :)", {}, [currentUser.oneSignalId]);
+        //await oneSignal.createNotification("Oba! O seu pedido foi confirmado e já está sendo preparado pelo restaurante :)", {}, [currentUser.oneSignalId]);
+        const notification = {
+          contents: {
+            'pt': 'Oba! O seu pedido foi confirmado e já está sendo preparado pelo restaurante.',
+          },
+          include_player_ids: [currentUser.oneSignalId],
+          android_channel_id: "0cdc4039-80fc-414d-b2e2-85d99a6e95b5"
+        };
+
+        try {
+          const response = await client.createNotification(notification);
+          console.log(response.body.id);
+          console.log("deu certo");
+        } catch (e) {
+          if (e instanceof OneSignal.HTTPError) {
+            // When status code of HTTP response is not 2xx, HTTPError is thrown.
+            console.log(e.statusCode);
+            console.log(e.body);
+            console.log("deu ruimmmmmmmmm");
+          }
+        }
+
       }
 
       if(entity.status == "ready"){
-        await oneSignal.createNotification("Seu #RanGo acabou de ficar pronto!", {}, [currentUser.oneSignalId]);
+        //await oneSignal.createNotification("Seu #RanGo acabou de ficar pronto!", {}, [currentUser.oneSignalId]);
+
+        const notification = {
+          contents: {
+            'pt': 'Oba! O seu pedido foi confirmado e já está sendo preparado pelo restaurante.',
+          },
+          include_player_ids: [currentUser.oneSignalId],
+          android_channel_id: "0cdc4039-80fc-414d-b2e2-85d99a6e95b5"
+        };
+
+        try {
+          const response = await client.createNotification(notification);
+          console.log(response.body.id);
+          console.log("deu certo");
+        } catch (e) {
+          if (e instanceof OneSignal.HTTPError) {
+            // When status code of HTTP response is not 2xx, HTTPError is thrown.
+            console.log(e.statusCode);
+            console.log(e.body);
+            console.log("deu ruimmmmmmmmm");
+          }
+        }
+
       }
 
       return sanitizeEntity(entity, { model: strapi.models.orders });
