@@ -4,6 +4,18 @@ const OneSignal = require('onesignal-node');
 const client = new OneSignal.Client('d559ec83-479d-462f-b163-32657eb2487f', 'Yzc0NDRiOTYtY2JhYy00NDNhLTg1N2YtY2Q5Y2YwNzMzY2Rh'); 
 
 module.exports = {
+
+  async find(ctx) {
+    let entities;
+    if (ctx.query._q) {
+      entities = await strapi.services.orders.search(ctx.query);
+    } else {
+      entities = await strapi.services.orders.find({user: ctx.state.user.id});
+    }
+
+    return entities.map(entity => sanitizeEntity(entity, { model: strapi.models.orders }));
+  },
+
   async create(ctx) {
 
     let entity;
