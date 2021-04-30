@@ -7,13 +7,28 @@ module.exports = {
 
   async find(ctx) {
     let entities;
-    if (ctx.query._q) {
-      entities = await strapi.services.orders.search(ctx.query);
-    } else {
-      entities = await strapi.services.orders.find({user: ctx.state.user.id});
-    }
+    if(ctx.state.user.role.id === 3) {   
 
-    return entities.map(entity => sanitizeEntity(entity, { model: strapi.models.orders }));
+      if (ctx.query._q) {
+        entities = await strapi.services.restaurant.search(ctx.query);
+      } else {
+        entities = await strapi.services.restaurant.find(ctx.query);
+      }
+      return entities.map(entity => sanitizeEntity(entity, { model: strapi.models.restaurant }));
+
+    } else if(ctx.state.user.role.id === 1) {
+
+        if (ctx.query._q) {
+          entities = await strapi.services.orders.search(ctx.query);
+        } else {
+          entities = await strapi.services.orders.find({user: ctx.state.user.id});
+        }
+
+        return entities.map(entity => sanitizeEntity(entity, { model: strapi.models.orders }));
+    } else {
+
+      return ctx.unauthorized(`Permission denied`);
+    }
   },
 
   async create(ctx) {
