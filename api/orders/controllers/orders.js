@@ -10,11 +10,11 @@ module.exports = {
     if(ctx.state.user.role.id === 3) {   
 
       if (ctx.query._q) {
-        entities = await strapi.services.restaurant.search(ctx.query);
+        entities = await strapi.services.orders.search(ctx.query);
       } else {
-        entities = await strapi.services.restaurant.find(ctx.query);
+        entities = await strapi.services.orders.find(ctx.query);
       }
-      return entities.map(entity => sanitizeEntity(entity, { model: strapi.models.restaurant }));
+      return entities.map(entity => sanitizeEntity(entity, { model: strapi.models.orders }));
 
     } else if(ctx.state.user.role.id === 1) {
 
