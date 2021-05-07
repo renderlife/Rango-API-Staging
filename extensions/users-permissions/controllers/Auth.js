@@ -18,20 +18,21 @@ const emailRegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"
 const formatError = (error) => [
   { messages: [{ id: error.id, message: error.message, field: error.field }] },
 ];
-// const issueAuthToken = (user) => {
-//   return strapi.plugins["users-permissions"].services.jwt.issue({
-//     id: user.id,
-//   });
-// };
-// const setAuthCookie = (ctx, token) => {
-//   ctx.cookies.set("authToken", token, {
-//     maxAge: 2592000000, // 30 Days
-//     domain: env.NODE_ENV.startsWith("dev") ? "localhost" : "rangosemfila.com.br",
-//     secure: env.NODE_ENV.startsWith("dev") ? false : true,
-//     sameSite: env.NODE_ENV.startsWith("dev") ? "Lax" : "None",
-//     httpOnly: true,
-//   });
-// };
+// comment here
+const issueAuthToken = (user) => {
+  return strapi.plugins["users-permissions"].services.jwt.issue({
+    id: user.id,
+  });
+};
+const setAuthCookie = (ctx, token) => {
+  ctx.cookies.set("authToken", token, {
+    maxAge: 2592000000, // 30 Days
+    domain: env.NODE_ENV.startsWith("dev") ? "localhost" : "rangosemfila.com.br",
+    secure: env.NODE_ENV.startsWith("dev") ? false : true,
+    sameSite: env.NODE_ENV.startsWith("dev") ? "Lax" : "None",
+    httpOnly: true,
+  });
+};
 
 module.exports = {
   async callback(ctx) {
@@ -197,13 +198,14 @@ module.exports = {
         return ctx.badRequest(null, error === "array" ? error[0] : error);
       }
 
-      // setAuthCookie(ctx, issueAuthToken(user));
-      // ctx.send({
-      //   isAuthenticated: true,
-      //   user: sanitizeEntity(user.toJSON ? user.toJSON() : user, {
-      //     model: strapi.query("user", "users-permissions").model,
-      //   }),
-      // });
+      // comment here
+      setAuthCookie(ctx, issueAuthToken(user));
+      ctx.send({
+        isAuthenticated: true,
+        user: sanitizeEntity(user.toJSON ? user.toJSON() : user, {
+          model: strapi.query("user", "users-permissions").model,
+        }),
+      });
     }
   },
 
